@@ -6,24 +6,14 @@ variable "linux_admin_password" {
     type ="string"
     description = "The password for the Linux admin account."
 }
-// GCP Variables
+
 variable "gcp_cluster_count" {
     type = "string"
-    default = "3"
+    default = "1"
     description = "Count of cluster instances to start."
 }
 variable "cluster_name" {
     type = "string"
+    default = "default"
     description = "Cluster name for the GCP Cluster."
 }
-// GCP Outputs
-output "gcp_cluster_endpoint" {
-    value = "${google_container_cluster.gcp_kubernetes.endpoint}"
-}
-output "gcp_ssh_command" {
-    value = "ssh ${var.linux_admin_username}@${google_container_cluster.gcp_kubernetes.endpoint}"
-}
-output "gcp_cluster_name" {
-    value = "${google_container_cluster.gcp_kubernetes.name}"
-}
-
