@@ -2,10 +2,6 @@ resource "google_container_cluster" "gcp_kubernetes" {
     name               = "${var.cluster_name}"
     zone               = "us-central1-a"
     initial_node_count = "${var.gcp_cluster_count}"
-    master_auth {
-        username = "${var.linux_admin_username}"
-        password = "${var.linux_admin_password}}"
-    }
     node_version = "1.9.3-gke.0"
     node_config {
         oauth_scopes = [

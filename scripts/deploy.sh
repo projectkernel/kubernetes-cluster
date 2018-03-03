@@ -13,4 +13,6 @@ gcloud container clusters \
     --zone us-central1-a \
     --project jenkins-196717
 
-kubectl apply -f kube/volume.yml
+# kubectl apply -f kube/volume.yml
+
+kubectl create secret generic jenkins-credentials --from-file=./user.txt --from-file=./pass.txt
